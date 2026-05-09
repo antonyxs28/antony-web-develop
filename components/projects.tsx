@@ -1,0 +1,157 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
+import { ExternalLink, Github } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+const projects = [
+  {
+    title: "NexusFlow SaaS",
+    description: "Uma plataforma SaaS completa de dashboard para gerenciar análises de negócio, colaboração em equipe e visualização de dados em tempo real com insights baseados em IA.",
+    image: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Tailwind"],
+    category: "Dashboard SaaS"
+  },
+  {
+    title: "MedCare Pro",
+    description: "Um sistema avançado de gestão clínica com agendamento de pacientes, prontuários eletrônicos, automação de faturamento e integração de telemedicina.",
+    image: "linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%)",
+    tags: ["React", "Node.js", "MongoDB", "Socket.io", "AWS"],
+    category: "Sistema de Saúde"
+  },
+  {
+    title: "Gastro Fusion",
+    description: "Uma landing page moderna para restaurante com reservas online, cardápio interativo, integração de delivery e uma experiência de pedido sem interrupções.",
+    image: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%)",
+    tags: ["Next.js", "Framer Motion", "Stripe", "Supabase"],
+    category: "Restaurante"
+  },
+  {
+    title: "FitLife Pro",
+    description: "Uma landing page de aplicativo fitness de última geração mostrando monitoramento de treinos, planos de treinamento personalizados e recursos comunitários.",
+    image: "linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2a2a5e 100%)",
+    tags: ["React", "TypeScript", "Three.js", "GSAP"],
+    category: "App Fitness"
+  },
+  {
+    title: "AI Productivity Hub",
+    description: "Uma plataforma de produtividade com IA que ajuda equipes a automatizar workflows, gerenciar tarefas de forma inteligente e aumentar a eficiência com sugestões inteligentes.",
+    image: "linear-gradient(135deg, #0a0a0f 0%, #151520 50%, #1a1a2e 100%)",
+    tags: ["Next.js", "OpenAI", "Vercel AI", "PostgreSQL", "Redis"],
+    category: "Plataforma IA"
+  }
+]
+
+export function Projects() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  return (
+    <section id="projects" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 grid-background opacity-30" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-y-1/2" />
+      
+      <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
+            Portfólio
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
+            Projetos em{" "}
+            <span className="gradient-text">destaque</span>
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Uma seleção de trabalhos recentes que demonstram minha expertise em criar 
+            aplicações web modernas, escaláveis e visualmente impressionantes.
+          </p>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
+              className={`group relative rounded-2xl glass-card glass-card-hover overflow-hidden ${
+                index === 0 ? "md:col-span-2 lg:col-span-2" : ""
+              }`}
+            >
+              {/* Project Preview */}
+              <div 
+                className="h-48 md:h-56 relative overflow-hidden"
+                style={{ background: project.image }}
+              >
+                {/* Mockup Elements */}
+                <div className="absolute inset-4 rounded-lg border border-white/10 bg-black/20 backdrop-blur-sm">
+                  <div className="flex items-center gap-1.5 p-3 border-b border-white/10">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  </div>
+                  <div className="p-4 space-y-2">
+                    <div className="h-3 w-3/4 bg-white/10 rounded" />
+                    <div className="h-3 w-1/2 bg-white/10 rounded" />
+                    <div className="h-3 w-2/3 bg-white/10 rounded" />
+                    <div className="mt-4 grid grid-cols-3 gap-2">
+                      <div className="h-8 bg-primary/20 rounded" />
+                      <div className="h-8 bg-white/5 rounded" />
+                      <div className="h-8 bg-white/5 rounded" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  <Button size="sm" variant="secondary" className="gap-2">
+                    <ExternalLink className="w-4 h-4" />
+                    Visualizar
+                  </Button>
+                  <Button size="sm" variant="outline" className="gap-2 bg-background/50">
+                    <Github className="w-4 h-4" />
+                    Código
+                  </Button>
+                </div>
+              </div>
+
+              {/* Project Info */}
+              <div className="p-6">
+                <span className="text-xs text-primary font-semibold uppercase tracking-wider">
+                  {project.category}
+                </span>
+                <h3 className="text-xl font-semibold text-foreground mt-2 mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 text-xs font-medium bg-muted rounded-full text-muted-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
