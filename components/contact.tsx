@@ -187,10 +187,10 @@ export function Contact() {
                         <SelectValue placeholder="Selecione o orçamento" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="1k-3k">$1,000 - $3,000</SelectItem>
-                        <SelectItem value="3k-5k">$3,000 - $5,000</SelectItem>
-                        <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                        <SelectItem value="10k+">$10,000+</SelectItem>
+                        <SelectItem value="1k-3k">R$1,000 - R$3,000</SelectItem>
+                        <SelectItem value="3k-5k">R$3,000 - R$5,000</SelectItem>
+                        <SelectItem value="5k-10k">R$5,000 - R$10,000</SelectItem>
+                        <SelectItem value="10k+">R$10,000+</SelectItem>
                         <SelectItem value="unsure">Ainda não sei</SelectItem>
                       </SelectContent>
                     </Select>

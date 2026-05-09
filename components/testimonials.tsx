@@ -22,21 +22,21 @@ const testimonials = [
   {
     name: "Maria Rodriguez",
     role: "Marketing Director, FoodieHub",
-    content: "A presença online do nosso restaurante se transformou completamente depois que o Antony redesenhou nosso site. As reservas aumentaram 40% no primeiro mês. Altamente recomendado!",
+    content: "O Antony transformou completamente a presença online do nosso restaurante com o redesign do site. O movimento aumentou significativamente já no primeiro mês. Altamente recomendado!",
     rating: 5,
     avatar: "MR"
   },
   {
     name: "James Wilson",
     role: "CTO, FitLife Startup",
-    content: "A landing page que o Antony criou para nosso app fitness era exatamente o que precisávamos. Limpa, moderna e converte como nunca. Ele agora é nosso desenvolvedor de confiança para todos os projetos.",
+    content: "A landing page que o Antony criou para nosso app fitness era exatamente o que precisávamos. Limpa, moderna e com excelente taxa de conversão. Ele agora é nosso desenvolvedor de confiança.",
     rating: 5,
     avatar: "JW"
   },
   {
     name: "Emily Thompson",
     role: "Product Manager, AI Solutions",
-    content: "A expertise do Antony em React e Next.js é excepcional. Ele entregou nossa plataforma de produtividade com IA antes do prazo, com funcionalidades que nem imaginávamos ser possíveis.",
+    content: "A expertise do Antony em React e Next.js é excepcional. Ele entregou nossa plataforma de produtividade com IA antes do prazo, com funcionalidades que superaram nossas expectativas.",
     rating: 5,
     avatar: "ET"
   },

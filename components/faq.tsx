@@ -35,8 +35,8 @@ const faqs = [
     answer: "Para projetos, geralmente exijo 50% no início e 50% na conclusão. Para projetos maiores, podemos organizar pagamentos por marcos. Os planos de manutenção mensal são cobrados no início de cada mês."
   },
   {
-    question: "Você fornece serviços de hospedagem?",
-    answer: "Sim, todos os meus planos de manutenção mensal incluem hospedagem. Utilizo soluções premium que garantem carregamento rápido, alta disponibilidade e certificados SSL automáticos. Para projetos pontuais, posso configurar a hospedagem ou trabalhar com seu provedor de preferência."
+    question: "Você ajuda com a configuração de hospedagem?",
+    answer: "Sim, auxilio na configuração e deploy do seu projeto na plataforma mais adequada para cada caso. Trabalho com serviços como Vercel, AWS, Digital Ocean e outros provedores modernos. Você escolhe o provedor ou posso recomendar a melhor opção para o seu projeto, além de oferecer suporte contínuo para manutenção e monitoramento."
   },
   {
     question: "Como nos comunicamos durante o projeto?",

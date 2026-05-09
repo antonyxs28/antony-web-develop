@@ -16,7 +16,7 @@ import {
 const stats = [
   { value: 30, suffix: "+", label: "Projetos Desenvolvidos" },
   { value: 100, suffix: "%", label: "Design Responsivo" },
-  { value: 98, suffix: "%", label: "Performance Score" },
+  { value: 100, suffix: "%", label: "Foco em Performance" },
   { value: 24, suffix: "h", label: "Resposta Rápida" },
 ];
 

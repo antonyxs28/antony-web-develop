@@ -51,9 +51,9 @@ const services = [
   },
   {
     icon: Wrench,
-    title: "Manutenção Mensal",
-    description: "Suporte e manutenção contínuos para manter suas aplicações funcionando perfeitamente com atualizações e melhorias regulares.",
-    features: ["Monitoramento 24/7", "Correção de Bugs", "Atualizações de Segurança", "Backups"],
+    title: "Suporte Mensal",
+    description: "Suporte técnico contínuo com monitoramento, atualizações e melhorias periódicas para manter seu projeto sempre funcionando com qualidade.",
+    features: ["Suporte Técnico", "Correção de Bugs", "Atualizações de Segurança", "Otimizações Regulares"],
     color: "from-indigo-400/20 to-blue-400/20"
   }
 ]
@@ -84,8 +84,8 @@ export function Services() {
             <span className="gradient-text">necessidades do seu negócio</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            De landing pages impressionantes a sistemas web complexos, entrego soluções completas 
-            que ajudam seu negócio a crescer e ter sucesso no mundo digital.
+            De landing pages modernas a sistemas web personalizados, cada projeto é desenvolvido 
+            com foco em performance, design e experiência do usuário.
           </p>
         </motion.div>
 
