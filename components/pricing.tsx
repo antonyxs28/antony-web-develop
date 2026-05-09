@@ -8,49 +8,44 @@ import { Button } from "@/components/ui/button"
 const plans = [
   {
     name: "Basic",
-    description: "Perfeito para pequenos negócios começando agora",
-    price: 199,
+    description: "Suporte essencial para manter seu site ativo e seguro",
+    price: 99,
     popular: false,
     features: [
-      "Hospedagem básica inclusa",
-      "Correções de bugs e atualizações",
-      "Suporte por email",
-      "Backups mensais",
+      "Suporte técnico básico",
+      "Correções de bugs simples",
+      "Pequenas atualizações",
+      "Assistência de deploy",
       "Monitoramento básico",
       "Resposta em até 48h"
     ]
   },
   {
     name: "Pro",
-    description: "Ideal para negócios em crescimento com sites ativos",
-    price: 399,
+    description: "Suporte avançado para projetos em crescimento",
+    price: 199,
     popular: true,
     features: [
-      "Hospedagem premium inclusa",
       "Correções prioritárias de bugs",
-      "Suporte por email e chat",
-      "Backups semanais",
-      "Monitoramento avançado",
+      "Melhorias contínuas",
       "Otimização de performance",
+      "Suporte mais rápido",
       "Pequenas atualizações de funcionalidades",
       "Resposta em até 24h"
     ]
   },
   {
     name: "Premium",
-    description: "Para empresas que necessitam de suporte completo",
-    price: 799,
+    description: "Suporte completo com prioridade máxima",
+    price: 399,
     popular: false,
     features: [
-      "Hospedagem empresarial inclusa",
-      "Correções imediatas de bugs",
-      "Suporte prioritário 24/7",
-      "Backups diários",
-      "Monitoramento em tempo real",
-      "Otimização contínua",
-      "Novas funcionalidades mensais",
-      "Gerente de conta dedicado",
-      "Resposta em até 4h"
+      "Suporte prioritário",
+      "Monitoramento contínuo",
+      "Melhorias recorrentes",
+      "Implementação de novas funcionalidades",
+      "Consultoria técnica",
+      "Resposta rápida"
     ]
   }
 ]
@@ -78,11 +73,11 @@ export function Pricing() {
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
             Planos de{" "}
-            <span className="gradient-text">manutenção mensal</span>
+            <span className="gradient-text">suporte e evolução</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Mantenha seu site funcionando perfeitamente com suporte contínuo, atualizações 
-            e otimização. Escolha o plano que se adequa às suas necessidades.
+            Acompanhamento contínuo, evolução constante e suporte técnico especializado 
+            para manter seu projeto sempre no melhor nível.
           </p>
         </motion.div>
 
@@ -116,7 +111,7 @@ export function Pricing() {
                 <h3 className="text-xl font-semibold text-foreground mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-foreground">${plan.price}</span>
+                  <span className="text-4xl font-bold text-foreground">R${plan.price}</span>
                   <span className="text-muted-foreground">/mês</span>
                 </div>
               </div>
@@ -153,7 +148,7 @@ export function Pricing() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center text-sm text-muted-foreground mt-8"
         >
-          Todos os planos exigem compromisso mínimo de 3 meses. Planos personalizados disponíveis para necessidades específicas.
+          Planos mensais, cancele quando quiser. Orçamento personalizado para necessidades específicas.
         </motion.p>
       </div>
     </section>
