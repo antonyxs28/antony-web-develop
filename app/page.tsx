@@ -8,8 +8,8 @@ import { Testimonials } from "@/components/testimonials"
 import { Pricing } from "@/components/pricing"
 import { Process } from "@/components/process"
 import { FAQ } from "@/components/faq"
-import { Contact } from "@/components/contact"
 import { CTA } from "@/components/cta"
+import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -25,8 +25,8 @@ export default function Home() {
       <Pricing />
       <Process />
       <FAQ />
-      <Contact />
       <CTA />
+      <Contact />
       <Footer />
     </main>
   )

@@ -25,6 +25,7 @@ const footerLinks = [
     links: [
       { name: "Landing Pages", href: "#services" },
       { name: "Sistemas Web", href: "#services" },
+      { name: "Aplicativos Mobile", href: "#services" },
       { name: "Automação", href: "#services" },
       { name: "Manutenção", href: "#pricing" },
     ]
@@ -58,8 +59,8 @@ export function Footer() {
                 Antony
               </motion.a>
               <p className="text-muted-foreground mb-6 max-w-sm">
-                Desenvolvedor web especializado em criar sites e sistemas 
-                modernos e de alta performance para negócios prontos para crescer online.
+                Desenvolvedor web e mobile especializado em criar sites, sistemas 
+                e aplicativos modernos para negócios que querem crescer online com profissionalismo.
               </p>
               {/* Social Links */}
               <div className="flex gap-3">

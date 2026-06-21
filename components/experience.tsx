@@ -14,52 +14,52 @@ import {
 } from "lucide-react";
 
 const stats = [
-  { value: 30, suffix: "+", label: "Projetos Desenvolvidos" },
-  { value: 100, suffix: "%", label: "Design Responsivo" },
-  { value: 100, suffix: "%", label: "Foco em Performance" },
-  { value: 24, suffix: "h", label: "Resposta Rápida" },
+  { value: 30, suffix: "+", label: "Projetos Entregues" },
+  { value: 100, suffix: "%", label: "Clientes Satisfeitos" },
+  { value: 98, suffix: "%", label: "Performance Google" },
+  { value: 24, suffix: "h", label: "Resposta Garantida" },
 ];
 
 const differentials = [
   {
     icon: Code2,
     title: "Stack Moderno",
-    description: "Utilizando React, Next.js e TypeScript para construir soluções eficientes e de alto desempenho",
+    description: "React, Next.js, React Native, TypeScript — tecnologia que grandes empresas usam, ao alcance do seu negócio",
   },
   {
     icon: Zap,
     title: "Desenvolvimento Ágil",
-    description: "Entregas rápidas com metodologias eficientes sem comprometer a qualidade do código",
+    description: "Entregas rápidas sem perder qualidade. Seu projeto no ar em semanas, não meses",
   },
   {
     icon: Smartphone,
-    title: "Design Responsivo",
-    description: "Interfaces adaptáveis que funcionam perfeitamente em qualquer dispositivo",
+    title: "Web + Mobile",
+    description: "Do site ao aplicativo nativo para iOS e Android com React Native. Solução completa em um só lugar",
   },
   {
     icon: Search,
-    title: "Aprendizado Contínuo",
-    description: "Sempre atualizado com as tendências e melhores práticas do desenvolvimento web",
+    title: "SEO Otimizado",
+    description: "Sites preparados para o Google. Mais visibilidade, mais tráfego, mais clientes",
   },
   {
     icon: Gauge,
-    title: "Foco em Performance",
-    description: "Código otimizado para carregamento rápido e experiência de usuário fluida",
+    title: "Performance Máxima",
+    description: "Cada byte é otimizado para carregar em segundos. Experiência fluida em qualquer dispositivo",
   },
   {
     icon: Server,
     title: "Soluções Escaláveis",
-    description: "Arquiteturas preparadas para crescer conforme as necessidades do seu negócio",
+    description: "Arquitetura preparada para crescer. Seu negócio pode expandir que a tecnologia acompanha",
   },
   {
     icon: HeadphonesIcon,
-    title: "Suporte e Manutenção",
-    description: "Acompanhamento contínuo com atualizações para manter seu projeto sempre no ar",
+    title: "Suporte Real",
+    description: "Não sumo depois de entregar. Suporte contínuo com atualizações e melhorias regulares",
   },
   {
     icon: FileCheck,
     title: "Código de Qualidade",
-    description: "Código limpo, bem estruturado e documentado seguindo as melhores práticas",
+    description: "Código limpo, seguro e documentado. Você não fica refém — pode levar para outro dev se quiser",
   },
 ];
 
@@ -107,12 +107,10 @@ export function Experience() {
       id="experience"
       className="py-24 lg:py-32 relative overflow-hidden"
     >
-      {/* Background */}
       <div className="absolute inset-0 grid-background opacity-30" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -120,19 +118,17 @@ export function Experience() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
-            Experiência
+            Diferenciais
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-            Por que clientes <span className="gradient-text">me escolhem</span>
+            Por que empresas <span className="gradient-text">confiam no meu trabalho</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Entrego projetos modernos e funcionais com foco em performance,
-            usabilidade e design. Cada aplicação é construída com tecnologias
-            atuais e boas práticas para gerar valor real ao seu negócio.
+            Não entrego só código. Entrego soluções que geram resultado, com qualidade profissional 
+            e suporte de verdade — do planejamento à manutenção contínua.
           </p>
         </motion.div>
 
-        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -155,7 +151,6 @@ export function Experience() {
           ))}
         </motion.div>
 
-        {/* Differentials Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {differentials.map((item, index) => (
             <motion.div

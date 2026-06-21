@@ -13,28 +13,28 @@ import {
 const steps = [
   {
     icon: CalendarCheck,
-    title: "Reunião",
-    description: "Começamos com uma call de descoberta para entender sua visão, objetivos e requisitos do projeto."
+    title: "Consultoria",
+    description: "Bate-papo rápido para entender seu negócio, seus objetivos e definir o melhor caminho."
   },
   {
     icon: FileText,
-    title: "Planejamento",
-    description: "Crio um plano de projeto detalhado com cronogramas, marcos e especificações técnicas."
+    title: "Proposta",
+    description: "Você recebe um orçamento claro com cronograma, entregáveis e tudo que está incluso."
   },
   {
     icon: Code2,
     title: "Desenvolvimento",
-    description: "Construo sua solução usando tecnologias modernas com atualizações regulares e sessões de feedback."
+    description: "Mão na massa com atualizações semanais. Você acompanha tudo em tempo real."
   },
   {
     icon: Rocket,
     title: "Lançamento",
-    description: "Após testes completos, fazemos o deploy do seu projeto e garantimos que tudo funcione perfeitamente."
+    description: "Testes, ajustes finais e deploy. Seu projeto no ar funcionando perfeitamente."
   },
   {
     icon: HeadphonesIcon,
-    title: "Suporte Contínuo",
-    description: "Forneço manutenção contínua, atualizações e suporte para manter seu projeto prosperando."
+    title: "Suporte",
+    description: "30 dias de suporte incluso. E depois, planos de manutenção para seu projeto seguir crescendo."
   }
 ]
 
@@ -60,12 +60,12 @@ export function Process() {
             Processo
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-            Como{" "}
-            <span className="gradient-text">trabalhamos juntos</span>
+            Simples, rápido e{" "}
+            <span className="gradient-text">sem mistério</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Um processo otimizado projetado para entregar resultados excepcionais 
-            mantendo você informado em cada etapa do caminho.
+            Da primeira conversa ao projeto no ar — você sabe exatamente o que acontece 
+            em cada etapa. Sem burocracia, sem surpresas.
           </p>
         </motion.div>
 

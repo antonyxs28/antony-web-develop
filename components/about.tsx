@@ -3,30 +3,31 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Rocket, Users, Zap } from "lucide-react";
+import { Code2, Rocket, Users, Zap, Smartphone, BarChart3 } from "lucide-react";
 
 const highlights = [
   {
     icon: Code2,
-    title: "Código Limpo",
+    title: "Stack Moderno",
     description:
-      "Escrevendo código sustentável e escalável que resiste ao tempo",
+      "React, Next.js, React Native e TypeScript — tecnologias que grandes empresas usam",
   },
   {
     icon: Rocket,
-    title: "Performance",
+    title: "Performance Real",
     description:
-      "Otimizado para velocidade e experiências de usuário excepcionais",
+      "Sites que carregam em segundos, apps que não travam. SEO e velocidade são prioridade",
   },
   {
-    icon: Users,
-    title: "Foco no Usuário",
-    description: "Projetando sempre com o usuário final em mente",
+    icon: Smartphone,
+    title: "Web + Mobile",
+    description:
+      "Do site institucional ao aplicativo nativo — soluções completas em um só lugar",
   },
   {
-    icon: Zap,
-    title: "Stack Moderno",
-    description: "Usando tecnologias de ponta para soluções modernas",
+    icon: BarChart3,
+    title: "Foco em Resultado",
+    description: "Cada projeto é pensado para gerar leads, vendas e crescimento real",
   },
 ];
 
@@ -36,47 +37,42 @@ export function About() {
 
   return (
     <section id="about" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 grid-background opacity-50" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
-              Sobre Mim
+              Sobre
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-              Criando experiências digitais com{" "}
-              <span className="gradient-text">paixão e precisão</span>
+              Tecnologia que{" "}
+              <span className="gradient-text">gera resultados</span>
+              , não apenas código bonito
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Olá, sou Antony — desenvolvedor web focado em criar experiências
-                digitais modernas, funcionais e visualmente impactantes. Minha
-                jornada na programação começou pela curiosidade sobre como as
-                coisas funcionavam na web. Desde então, venho evoluindo
-                constantemente, estudando e desenvolvendo projetos com
-                tecnologias modernas como React, Next.js, Node.js e TypeScript.
-                Tenho foco na criação de landing pages, sistemas web e
-                interfaces modernas que unem performance, design e boa
-                experiência de usuário. Gosto de construir aplicações bem
-                estruturadas, rápidas e com visual premium, sempre buscando
-                entregar soluções que realmente agreguem valor para empresas e
-                projetos digitais. Além do desenvolvimento, estou sempre
-                aprendendo novas tecnologias, acompanhando tendências do mercado
-                e aprimorando minhas habilidades para criar experiências cada
-                vez melhores na web.
+                Sou Antony, desenvolvedor web e mobile especializado em criar soluções digitais 
+                que realmente funcionam — bonitas por fora, rápidas por dentro e feitas para converter.
+              </p>
+              <p>
+                Trabalho com React, Next.js, React Native, TypeScript e Node.js para entregar 
+                desde landing pages de alta conversão até sistemas web completos e aplicativos 
+                mobile nativos (iOS e Android) com um único código.
+              </p>
+              <p>
+                Meu foco é ajudar pequenas empresas, negócios locais e profissionais autônomos 
+                a terem uma presença digital profissional sem pagar fortuna — com entregas 
+                rápidas, comunicação direta e suporte contínuo.
               </p>
             </div>
           </motion.div>
 
-          {/* Highlights Grid */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
