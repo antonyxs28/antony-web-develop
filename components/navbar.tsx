@@ -92,7 +92,7 @@ export function Navbar() {
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground animate-pulse-glow"
             >
-              <a href="#contact">Agendar Reunião</a>
+              <a href="#contact">Fale Comigo</a>
             </Button>
           </div>
 
@@ -137,7 +137,7 @@ export function Navbar() {
                 className="mt-2 bg-primary hover:bg-primary/90 text-primary-foreground"
               >
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  Agendar Reunião
+                  Fale Comigo
                 </a>
               </Button>
             </div>

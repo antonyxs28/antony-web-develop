@@ -2,7 +2,7 @@
 
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { FormEvent, useRef, useState } from "react"
-import { Send, MessageCircle, Calendar, Mail, Loader2, CheckCircle2, XCircle } from "lucide-react"
+import { Send, MessageCircle, Mail, Loader2, CheckCircle2, XCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,22 +19,17 @@ const contactMethods = [
   {
     icon: MessageCircle,
     title: "WhatsApp",
-    description: "Resposta rápida para assuntos urgentes",
-    action: "Conversar Agora",
+    description: "Receba um orçamento personalizado e tire suas dúvidas rapidamente.",
+    tag: "Resposta rápida",
+    action: "Falar no WhatsApp",
     href: "https://wa.me/1234567890",
     primary: true
   },
   {
-    icon: Calendar,
-    title: "Agendar Reunião",
-    description: "Agende uma consultoria gratuita",
-    action: "Agendar Call",
-    href: "#contact"
-  },
-  {
     icon: Mail,
     title: "Email",
-    description: "Para consultas detalhadas de projetos",
+    description: "Envie os detalhes do seu projeto para uma análise mais completa.",
+    tag: "Resposta em até 24 horas",
     action: "Enviar Email",
     href: "mailto:hello@antony.dev"
   }
@@ -62,6 +57,7 @@ export function Contact() {
   const [submissionError, setSubmissionError] = useState<string | null>(null)
 
   const [nome, setNome] = useState("")
+  const [whatsapp, setWhatsapp] = useState("")
   const [email, setEmail] = useState("")
   const [projeto, setProjeto] = useState("")
   const [orcamento, setOrcamento] = useState("")
@@ -72,6 +68,7 @@ export function Contact() {
 
   const resetForm = () => {
     setNome("")
+    setWhatsapp("")
     setEmail("")
     setProjeto("")
     setOrcamento("")
@@ -85,6 +82,7 @@ export function Contact() {
 
     const payload = {
       nome,
+      whatsapp,
       email,
       projeto,
       orcamento,
@@ -143,9 +141,24 @@ export function Contact() {
             {"Vamos transformar sua"}{" "}
             <span className="gradient-text">ideia em realidade</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Preencha o formulário abaixo ou me chame no WhatsApp. Respondo em até 24 horas
             com um orçamento personalizado para seu projeto.
+          </p>
+        </motion.div>
+
+        {/* Destaque */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-center max-w-2xl mx-auto mb-10"
+        >
+          <p className="text-lg sm:text-xl font-semibold text-foreground mb-2">
+            Pronto para tirar seu projeto do papel?
+          </p>
+          <p className="text-muted-foreground">
+            Entre em contato pelo WhatsApp para um orçamento rápido ou envie um email com os detalhes da sua ideia.
           </p>
         </motion.div>
 
@@ -154,7 +167,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12"
+          className="grid md:grid-cols-2 gap-5 max-w-2xl mx-auto mb-12"
         >
           {contactMethods.map((method, index) => (
             <motion.a
@@ -163,25 +176,43 @@ export function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-              whileHover={{ y: -4 }}
-              className={`p-5 rounded-xl text-center group ${
+              whileHover={{ y: -5 }}
+              className={`p-6 sm:p-7 rounded-xl text-center group relative overflow-hidden ${
                 method.primary
-                  ? "bg-primary/10 border border-primary/30"
-                  : "glass-card glass-card-hover"
+                  ? "bg-primary/10 border-2 border-primary/30"
+                  : "glass-card glass-card-hover border"
               }`}
             >
-              <div className={`w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center ${
+              {/* Glow sutil no card primary */}
+              {method.primary && (
+                <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+              )}
+              <div className={`w-14 h-14 rounded-xl mx-auto mb-4 flex items-center justify-center ${
                 method.primary
-                  ? "bg-primary/20"
+                  ? "bg-primary/20 shadow-lg shadow-primary/10"
                   : "bg-muted group-hover:bg-primary/20"
-              } transition-colors`}>
-                <method.icon className={`w-6 h-6 ${method.primary ? "text-primary" : "text-muted-foreground group-hover:text-primary"} transition-colors`} />
+              } transition-all duration-300`}>
+                <method.icon className={`w-7 h-7 ${method.primary ? "text-primary" : "text-muted-foreground group-hover:text-primary"} transition-colors`} />
               </div>
-              <h3 className="font-semibold text-foreground mb-1">{method.title}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{method.description}</p>
-              <span className={`text-sm font-medium ${method.primary ? "text-primary" : "text-muted-foreground group-hover:text-primary"} transition-colors`}>
-                {method.action} →
-              </span>
+              <h3 className="text-xl font-semibold text-foreground mb-2">{method.title}</h3>
+              <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+                {method.description}
+              </p>
+              {method.tag && (
+                <span className="inline-block text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full mb-3">
+                  {method.tag}
+                </span>
+              )}
+              <div>
+                <span className={`inline-flex items-center gap-1 text-sm font-semibold ${
+                  method.primary
+                    ? "text-primary"
+                    : "text-muted-foreground group-hover:text-primary"
+                } transition-colors`}>
+                  {method.action}
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </span>
+              </div>
             </motion.a>
           ))}
         </motion.div>
@@ -193,7 +224,17 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="p-8 rounded-2xl glass-card relative overflow-hidden">
+          <div className="p-8 sm:p-10 rounded-2xl glass-card relative overflow-hidden">
+            {/* Form Header */}
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+                Solicite um Orçamento
+              </h3>
+              <p className="text-muted-foreground text-sm sm:text-base">
+                Preencha as informações abaixo e entrarei em contato para entender melhor seu projeto.
+              </p>
+            </div>
+
             <AnimatePresence mode="wait">
               {isSubmitted ? (
                 <motion.div
@@ -257,23 +298,41 @@ export function Contact() {
                   animate="visible"
                   exit="exit"
                   onSubmit={handleSubmit}
-                  className="space-y-6"
                 >
-                  <div className={`transition-all duration-300 ${isSubmitting ? "pointer-events-none opacity-60" : ""}`}>
-                    <div className="grid sm:grid-cols-2 gap-4">
+                  <div className={`transition-all duration-300 ${isSubmitting ? "pointer-events-none opacity-60" : ""} space-y-6`}>
+                    {/* Nome */}
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-sm font-medium text-foreground">
+                        Nome
+                      </Label>
+                      <Input
+                        id="name"
+                        value={nome}
+                        onChange={(event) => setNome(event.target.value)}
+                        placeholder="Seu nome"
+                        required
+                        className="h-12 bg-muted/50 border-border transition-all duration-200 hover:border-primary/30 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary"
+                      />
+                    </div>
+
+                    {/* WhatsApp + Email */}
+                    <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Nome</Label>
+                        <Label htmlFor="whatsapp" className="text-sm font-medium text-foreground">
+                          WhatsApp
+                        </Label>
                         <Input
-                          id="name"
-                          value={nome}
-                          onChange={(event) => setNome(event.target.value)}
-                          placeholder="Seu nome"
-                          required
-                          className="bg-muted/50 border-border"
+                          id="whatsapp"
+                          value={whatsapp}
+                          onChange={(event) => setWhatsapp(event.target.value)}
+                          placeholder="(11) 99999-9999"
+                          className="h-12 bg-muted/50 border-border transition-all duration-200 hover:border-primary/30 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
+                        <Label htmlFor="email" className="text-sm font-medium text-foreground">
+                          Email
+                        </Label>
                         <Input
                           id="email"
                           type="email"
@@ -281,16 +340,19 @@ export function Contact() {
                           onChange={(event) => setEmail(event.target.value)}
                           placeholder="seu@email.com"
                           required
-                          className="bg-muted/50 border-border"
+                          className="h-12 bg-muted/50 border-border transition-all duration-200 hover:border-primary/30 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary"
                         />
                       </div>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-4">
+                    {/* Tipo de Projeto + Orçamento */}
+                    <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="project-type">Tipo de Projeto</Label>
+                        <Label htmlFor="project-type" className="text-sm font-medium text-foreground">
+                          Tipo de Projeto
+                        </Label>
                         <Select value={projeto} onValueChange={setProjeto}>
-                          <SelectTrigger className="bg-muted/50 border-border">
+                          <SelectTrigger className="h-12 bg-muted/50 border-border transition-all duration-200 hover:border-primary/30 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary">
                             <SelectValue placeholder="Selecione o tipo" />
                           </SelectTrigger>
                           <SelectContent>
@@ -305,9 +367,11 @@ export function Contact() {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="budget">Faixa de Orçamento</Label>
+                        <Label htmlFor="budget" className="text-sm font-medium text-foreground">
+                          Faixa de Orçamento
+                        </Label>
                         <Select value={orcamento} onValueChange={setOrcamento}>
-                          <SelectTrigger className="bg-muted/50 border-border">
+                          <SelectTrigger className="h-12 bg-muted/50 border-border transition-all duration-200 hover:border-primary/30 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary">
                             <SelectValue placeholder="Selecione o orçamento" />
                           </SelectTrigger>
                           <SelectContent>
@@ -321,58 +385,61 @@ export function Contact() {
                       </div>
                     </div>
 
+                    {/* Mensagem */}
                     <div className="space-y-2">
-                      <Label htmlFor="message">Mensagem</Label>
+                      <Label htmlFor="message" className="text-sm font-medium text-foreground">
+                        Mensagem
+                      </Label>
                       <Textarea
                         id="message"
                         value={mensagem}
                         onChange={(event) => setMensagem(event.target.value)}
-                        placeholder="Conte-me sobre seu projeto..."
+                        placeholder="Conte-me sobre seu projeto... Qual o objetivo? Quais funcionalidades você precisa?"
                         required
-                        rows={5}
-                        className="bg-muted/50 border-border resize-none"
+                        rows={6}
+                        className="min-h-[140px] bg-muted/50 border-border transition-all duration-200 hover:border-primary/30 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary resize-y"
                       />
                     </div>
-                  </div>
 
-                  <AnimatePresence>
-                    {submissionError && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0, marginBottom: 0 }}
-                        animate={{ opacity: 1, height: "auto", marginBottom: "1rem" }}
-                        exit={{ opacity: 0, height: 0, marginBottom: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
+                    <AnimatePresence>
+                      {submissionError && (
                         <motion.div
-                          initial={{ x: -10 }}
-                          animate={{ x: 0 }}
-                          className="rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive flex items-start gap-3"
+                          initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+                          animate={{ opacity: 1, height: "auto", marginBottom: "1rem" }}
+                          exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
                         >
-                          <XCircle className="w-5 h-5 mt-0.5 shrink-0" />
-                          <span>{submissionError}</span>
+                          <motion.div
+                            initial={{ x: -10 }}
+                            animate={{ x: 0 }}
+                            className="rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive flex items-start gap-3"
+                          >
+                            <XCircle className="w-5 h-5 mt-0.5 shrink-0" />
+                            <span>{submissionError}</span>
+                          </motion.div>
                         </motion.div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      )}
+                    </AnimatePresence>
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 transition-all duration-300"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                        Enviando...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Enviar Mensagem
-                      </>
-                    )}
-                  </Button>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground text-base font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98]"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                          Enviando...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5 mr-2" />
+                          Enviar Mensagem
+                        </>
+                      )}
+                    </Button>
+                  </div>
                 </motion.form>
               )}
             </AnimatePresence>
